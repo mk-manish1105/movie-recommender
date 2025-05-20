@@ -1,5 +1,4 @@
 # Hide environment and system files
-.env
 venv/
 __pycache__/
 *.pyc
