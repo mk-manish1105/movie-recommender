@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import gzip
+import warnings
 import numpy as np
 import pandas as pd
 import requests
@@ -58,8 +59,11 @@ def fetch_trailer(movie_id):
 # Load saved data
 movies = pickle.load(open('movies.pkl', 'rb'))
 
-with gzip.open('similarity.pkl.gz', 'rb') as f:
-    similarity = pickle.load(f)
+
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore", category=DeprecationWarning)
+    with gzip.open('similarity.pkl.gz', 'rb') as f:
+        similarity = pickle.load(f)
 
 def recommend(movie, n_recommendations=5):
     try:
