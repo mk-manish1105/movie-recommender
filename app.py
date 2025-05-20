@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import gzip
+import numpy as np
 import pandas as pd
 import requests
 from dotenv import load_dotenv
