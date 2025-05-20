@@ -5,11 +5,9 @@ import warnings
 import numpy as np
 import pandas as pd
 import requests
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-api_key = os.getenv("TMDB_API_KEY")
+# Direct API key assignment
+api_key = "2a96ade69693123c61dbe8ac23ee5124"
 
 # Fetch poster image URL
 def fetch_poster(movie_id):
@@ -58,7 +56,6 @@ def fetch_trailer(movie_id):
 
 # Load saved data
 movies = pickle.load(open('movies.pkl', 'rb'))
-
 
 with warnings.catch_warnings():
     warnings.simplefilter("ignore", category=DeprecationWarning)
